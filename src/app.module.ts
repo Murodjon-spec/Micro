@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductModule } from './product/product.module';
-import { Product } from './product/entities/product.entity';
+import { ProductsModule } from './products/products.module';
+import { Product } from './products/entities/product.entity';
 
 @Module({
   imports: [
@@ -14,11 +14,11 @@ import { Product } from './product/entities/product.entity';
       database: 'product',
       entities: [Product],
       synchronize: true,
+      autoLoadEntities: true,
     }),
-    ProductModule
+    ProductsModule
   ],
   controllers: [],
-  providers: []
-  
+  providers: [],
 })
-export class AppModule {}
+export class AppModule { }
